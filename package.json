@@ -1,12 +1,17 @@
 {
   "name": "hostme-sdk-angular-web",
   "version": "1.0.0",
-  "description": "Sample of generated TypeScript petstore client",
+  "description": "HostMe angular SDK for widget APIs",
   "main": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HostMeApp/hostme-sdk-angular-web.git"
+  },
   "scripts": {
     "postinstall": "typings install",
     "test": "tsc",
-    "build": "rm -rf dist && tsc"
+    "build": "rm -rf dist && tsc",
+    "publish": "bower register hostme-sdk-angular-web <git-endpoint>"
   },
   "author": "HostMe",
   "license": "MIT",
@@ -15,6 +20,7 @@
   },
   "devDependencies": {
     "typings": "^0.7.12",
-    "typescript": "^1.5.3"
+    "typescript": "^1.5.3",
+    "bower": "^1.7.9"
   }
 }

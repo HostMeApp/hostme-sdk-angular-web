@@ -1,6 +1,12 @@
 {
   "name": "hostme-sdk-angular-web",
   "version": "1.0.0",
+  "description": "HostMe angular SDK for widget APIs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HostMeApp/hostme-sdk-angular-web.git"
+  },
+  "main": [ "index.d.ts", "hostme-sdk-web.js" ],
   "dependencies": {
     "jquery": "2.1.1",
     "angular": "1.5.0"
