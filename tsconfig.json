@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "out": "hostme-sdk-web.js"
+  },
+  "exclude": [
+        "node_modules",
+        "typings"
+    ]	
+}
