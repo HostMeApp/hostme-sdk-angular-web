@@ -1,0 +1,7 @@
+
+
+
+/// <reference path="WebReservationsApi.ts" />
+
+
+
