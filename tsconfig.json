@@ -5,7 +5,8 @@
     "out": "hostme-sdk-web.js"
   },
   "exclude": [
-        "node_modules",
-        "typings"
-    ]	
+    "node_modules",
+    "bower_components",
+    "typings"
+  ]	
 }
