@@ -1,9 +1,7 @@
 /* tslint:disable:no-unused-variable member-ordering */
 
-
 namespace HostMe.Sdk {
     'use strict';
-
 
     export class WebReservationsApi {
         protected basePath = 'http://hostme-services-dev.azurewebsites.net';
@@ -26,7 +24,6 @@ namespace HostMe.Sdk {
             return <T1&T2>objA;
         }
 
-
         /**
          * 
          * 
@@ -39,34 +36,20 @@ namespace HostMe.Sdk {
 
             let queryParameters: any = {};
             let headerParams: any = this.extendObj({}, this.defaultHeaders);
-
-
-
             // verify required parameter 'restaurantId' is set
             if (!restaurantId) {
                 throw new Error('Missing required parameter restaurantId when calling addNewReservation');
             }
-
-
-
             // verify required parameter 'value' is set
             if (!value) {
                 throw new Error('Missing required parameter value when calling addNewReservation');
             }
-
-
-
-
-
-
             let httpRequestParams: any = {
                 method: 'POST',
                 url: localVarPath,
                 json: true,
                 data: value,
-                
-                
-                params: queryParameters,
+                                params: queryParameters,
                 headers: headerParams
             };
 
@@ -76,7 +59,6 @@ namespace HostMe.Sdk {
 
             return this.$http(httpRequestParams);
         }
-
         /**
          * 
          * 
@@ -89,40 +71,23 @@ namespace HostMe.Sdk {
 
             let queryParameters: any = {};
             let headerParams: any = this.extendObj({}, this.defaultHeaders);
-
-
-
-
-
-
-
-
-
             if (lat !== undefined) {
                 queryParameters['lat'] = lat;
             }
-
 
             if (lon !== undefined) {
                 queryParameters['lon'] = lon;
             }
 
-
             if (name !== undefined) {
                 queryParameters['name'] = name;
             }
-
-
-
-
 
             let httpRequestParams: any = {
                 method: 'GET',
                 url: localVarPath,
                 json: true,
-                
-                
-                params: queryParameters,
+                                                params: queryParameters,
                 headers: headerParams
             };
 
@@ -132,7 +97,6 @@ namespace HostMe.Sdk {
 
             return this.$http(httpRequestParams);
         }
-
         /**
          * 
          * 
@@ -148,69 +112,43 @@ namespace HostMe.Sdk {
 
             let queryParameters: any = {};
             let headerParams: any = this.extendObj({}, this.defaultHeaders);
-
-
-
             // verify required parameter 'restaurantId' is set
             if (!restaurantId) {
                 throw new Error('Missing required parameter restaurantId when calling getReservationAvailability');
             }
-
-
-
             // verify required parameter 'date' is set
             if (!date) {
                 throw new Error('Missing required parameter date when calling getReservationAvailability');
             }
-
-
-
             // verify required parameter 'partySize' is set
             if (!partySize) {
                 throw new Error('Missing required parameter partySize when calling getReservationAvailability');
             }
-
-
-
             // verify required parameter 'rangeInMinutes' is set
             if (!rangeInMinutes) {
                 throw new Error('Missing required parameter rangeInMinutes when calling getReservationAvailability');
             }
-
-
-
-
-
             if (date !== undefined) {
                 queryParameters['date'] = date;
             }
-
 
             if (partySize !== undefined) {
                 queryParameters['partySize'] = partySize;
             }
 
-
             if (rangeInMinutes !== undefined) {
                 queryParameters['rangeInMinutes'] = rangeInMinutes;
             }
-
 
             if (areas !== undefined) {
                 queryParameters['areas'] = areas;
             }
 
-
-
-
-
             let httpRequestParams: any = {
                 method: 'GET',
                 url: localVarPath,
                 json: true,
-                
-                
-                params: queryParameters,
+                                                params: queryParameters,
                 headers: headerParams
             };
 
@@ -220,7 +158,6 @@ namespace HostMe.Sdk {
 
             return this.$http(httpRequestParams);
         }
-
         /**
          * 
          * 
@@ -232,26 +169,15 @@ namespace HostMe.Sdk {
 
             let queryParameters: any = {};
             let headerParams: any = this.extendObj({}, this.defaultHeaders);
-
-
-
             // verify required parameter 'restaurantId' is set
             if (!restaurantId) {
                 throw new Error('Missing required parameter restaurantId when calling getRestaurantById');
             }
-
-
-
-
-
-
             let httpRequestParams: any = {
                 method: 'GET',
                 url: localVarPath,
                 json: true,
-                
-                
-                params: queryParameters,
+                                                params: queryParameters,
                 headers: headerParams
             };
 
@@ -261,7 +187,5 @@ namespace HostMe.Sdk {
 
             return this.$http(httpRequestParams);
         }
-
     }
 }
-
