@@ -10,6 +10,21 @@ var HostMe;
     var Sdk;
     (function (Sdk) {
         'use strict';
+        var CreateReservation;
+        (function (CreateReservation) {
+            (function (TypeEnum) {
+                TypeEnum[TypeEnum["Standard"] = 'Standard'] = "Standard";
+                TypeEnum[TypeEnum["Hybrid"] = 'Hybrid'] = "Hybrid";
+            })(CreateReservation.TypeEnum || (CreateReservation.TypeEnum = {}));
+            var TypeEnum = CreateReservation.TypeEnum;
+        })(CreateReservation = Sdk.CreateReservation || (Sdk.CreateReservation = {}));
+    })(Sdk = HostMe.Sdk || (HostMe.Sdk = {}));
+})(HostMe || (HostMe = {}));
+var HostMe;
+(function (HostMe) {
+    var Sdk;
+    (function (Sdk) {
+        'use strict';
     })(Sdk = HostMe.Sdk || (HostMe.Sdk = {}));
 })(HostMe || (HostMe = {}));
 var HostMe;
@@ -103,7 +118,7 @@ var HostMe;
             function WebReservationsApi($http, $httpParamSerializer, basePath) {
                 this.$http = $http;
                 this.$httpParamSerializer = $httpParamSerializer;
-                this.basePath = 'http://hostme-services-dev.azurewebsites.net';
+                this.basePath = 'http://hostme-services-tables.azurewebsites.net';
                 this.defaultHeaders = {};
                 if (basePath) {
                     this.basePath = basePath;
