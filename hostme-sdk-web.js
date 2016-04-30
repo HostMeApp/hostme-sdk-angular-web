@@ -53,6 +53,13 @@ var HostMe;
     var Sdk;
     (function (Sdk) {
         'use strict';
+    })(Sdk = HostMe.Sdk || (HostMe.Sdk = {}));
+})(HostMe || (HostMe = {}));
+var HostMe;
+(function (HostMe) {
+    var Sdk;
+    (function (Sdk) {
+        'use strict';
         var OnlineAvailability;
         (function (OnlineAvailability) {
             (function (AvailabilityLevelEnum) {
