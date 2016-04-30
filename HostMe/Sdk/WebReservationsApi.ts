@@ -4,7 +4,7 @@ namespace HostMe.Sdk {
     'use strict';
 
     export class WebReservationsApi {
-        protected basePath = 'http://hostme-services-dev.azurewebsites.net';
+        protected basePath = 'http://hostme-services-tables.azurewebsites.net';
         public defaultHeaders : any = {};
 
         static $inject: string[] = ['$http', '$httpParamSerializer'];
@@ -30,7 +30,7 @@ namespace HostMe.Sdk {
          * @param restaurantId 
          * @param value 
          */
-        public addNewReservation (restaurantId: number, value: NewWebReservationBindingModel, extraHttpRequestParams?: any ) : ng.IHttpPromise<Reservation> {
+        public addNewReservation (restaurantId: number, value: CreateReservation, extraHttpRequestParams?: any ) : ng.IHttpPromise<Reservation> {
             const localVarPath = this.basePath + '/api/rsv/web/restaurants/{restaurantId}/reservations'
                 .replace('{' + 'restaurantId' + '}', String(restaurantId));
 
