@@ -1,5 +1,5 @@
 /// <reference path="BusinessHours.ts" />
-/// <reference path="CreateReservation.ts" />
+/// <reference path="CreateWebReservation.ts" />
 /// <reference path="HourlyInterval.ts" />
 /// <reference path="MembershipInfo.ts" />
 /// <reference path="Message.ts" />

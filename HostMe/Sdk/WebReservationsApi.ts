@@ -30,7 +30,7 @@ namespace HostMe.Sdk {
          * @param restaurantId 
          * @param value 
          */
-        public addNewReservation (restaurantId: number, value: CreateReservation, extraHttpRequestParams?: any ) : ng.IHttpPromise<Reservation> {
+        public addNewReservation (restaurantId: number, value: CreateWebReservation, extraHttpRequestParams?: any ) : ng.IHttpPromise<Reservation> {
             const localVarPath = this.basePath + '/api/rsv/web/restaurants/{restaurantId}/reservations'
                 .replace('{' + 'restaurantId' + '}', String(restaurantId));
 
