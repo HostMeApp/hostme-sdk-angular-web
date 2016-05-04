@@ -60,6 +60,27 @@ var HostMe;
     var Sdk;
     (function (Sdk) {
         'use strict';
+    })(Sdk = HostMe.Sdk || (HostMe.Sdk = {}));
+})(HostMe || (HostMe = {}));
+var HostMe;
+(function (HostMe) {
+    var Sdk;
+    (function (Sdk) {
+        'use strict';
+    })(Sdk = HostMe.Sdk || (HostMe.Sdk = {}));
+})(HostMe || (HostMe = {}));
+var HostMe;
+(function (HostMe) {
+    var Sdk;
+    (function (Sdk) {
+        'use strict';
+    })(Sdk = HostMe.Sdk || (HostMe.Sdk = {}));
+})(HostMe || (HostMe = {}));
+var HostMe;
+(function (HostMe) {
+    var Sdk;
+    (function (Sdk) {
+        'use strict';
         var OnlineAvailability;
         (function (OnlineAvailability) {
             (function (AvailabilityLevelEnum) {
@@ -70,6 +91,13 @@ var HostMe;
             })(OnlineAvailability.AvailabilityLevelEnum || (OnlineAvailability.AvailabilityLevelEnum = {}));
             var AvailabilityLevelEnum = OnlineAvailability.AvailabilityLevelEnum;
         })(OnlineAvailability = Sdk.OnlineAvailability || (Sdk.OnlineAvailability = {}));
+    })(Sdk = HostMe.Sdk || (HostMe.Sdk = {}));
+})(HostMe || (HostMe = {}));
+var HostMe;
+(function (HostMe) {
+    var Sdk;
+    (function (Sdk) {
+        'use strict';
     })(Sdk = HostMe.Sdk || (HostMe.Sdk = {}));
 })(HostMe || (HostMe = {}));
 var HostMe;
@@ -115,6 +143,13 @@ var HostMe;
         'use strict';
     })(Sdk = HostMe.Sdk || (HostMe.Sdk = {}));
 })(HostMe || (HostMe = {}));
+var HostMe;
+(function (HostMe) {
+    var Sdk;
+    (function (Sdk) {
+        'use strict';
+    })(Sdk = HostMe.Sdk || (HostMe.Sdk = {}));
+})(HostMe || (HostMe = {}));
 /* tslint:disable:no-unused-variable member-ordering */
 var HostMe;
 (function (HostMe) {
@@ -125,7 +160,7 @@ var HostMe;
             function WebReservationsApi($http, $httpParamSerializer, basePath) {
                 this.$http = $http;
                 this.$httpParamSerializer = $httpParamSerializer;
-                this.basePath = 'http://hostme-services-tables.azurewebsites.net';
+                this.basePath = 'http://hostme-services-dev.azurewebsites.net';
                 this.defaultHeaders = {};
                 if (basePath) {
                     this.basePath = basePath;
