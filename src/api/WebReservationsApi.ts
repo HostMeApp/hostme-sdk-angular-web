@@ -1,8 +1,9 @@
 /* tslint:disable:no-unused-variable member-ordering */
+import * as models from '../model/models';
+import * as auth from './auth';
 
-namespace HostMe.Sdk {
-    'use strict';
-
+'use strict';
+                                 	
     export class WebReservationsApi {
         protected basePath = 'http://hostme-services-dev.azurewebsites.net';
         public defaultHeaders : any = {};
@@ -14,10 +15,20 @@ namespace HostMe.Sdk {
                 this.basePath = basePath;
             }
         }
+        
+        public authentications = {
+        'default': <auth.Authentication>new auth.VoidAuth(),
+        'oauth2': new auth.OAuth(),
+    }
+    
+    set accessToken(token: string) {
+        this.authentications.oauth2.accessToken = token;
+    }
+    
 
         private extendObj<T1,T2>(objA: T1, objB: T2) {
-            for(let key in objB){
-                if(objB.hasOwnProperty(key)){
+            for(let key in objB) {
+                if(objB.hasOwnProperty(key)) {
                     objA[key] = objB[key];
                 }
             }
@@ -30,7 +41,7 @@ namespace HostMe.Sdk {
          * @param restaurantId 
          * @param value 
          */
-        public addNewReservation (restaurantId: number, value: CreateWebReservation, extraHttpRequestParams?: any ) : ng.IHttpPromise<Reservation> {
+        public addNewReservation (restaurantId: number, value: models.CreateWebReservation, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Reservation> {
             const localVarPath = this.basePath + '/api/rsv/web/restaurants/{restaurantId}/reservations'
                 .replace('{' + 'restaurantId' + '}', String(restaurantId));
 
@@ -56,6 +67,8 @@ namespace HostMe.Sdk {
             if (extraHttpRequestParams) {
                 httpRequestParams = this.extendObj(httpRequestParams, extraHttpRequestParams);
             }
+            
+            this.authentications.default.applyToRequest(httpRequestParams);
 
             return this.$http(httpRequestParams);
         }
@@ -66,7 +79,7 @@ namespace HostMe.Sdk {
          * @param lon 
          * @param name 
          */
-        public findRestaurants (lat?: number, lon?: number, name?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<RestaurantInfo>> {
+        public findRestaurants (lat?: number, lon?: number, name?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.RestaurantInfo>> {
             const localVarPath = this.basePath + '/api/rsv/web/restaurants/find';
 
             let queryParameters: any = {};
@@ -94,6 +107,8 @@ namespace HostMe.Sdk {
             if (extraHttpRequestParams) {
                 httpRequestParams = this.extendObj(httpRequestParams, extraHttpRequestParams);
             }
+            
+            this.authentications.default.applyToRequest(httpRequestParams);
 
             return this.$http(httpRequestParams);
         }
@@ -106,7 +121,7 @@ namespace HostMe.Sdk {
          * @param rangeInMinutes 
          * @param areas 
          */
-        public getReservationAvailability (restaurantId: number, date: Date, partySize: number, rangeInMinutes: number, areas?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<OnlineAvailability>> {
+        public getReservationAvailability (restaurantId: number, date: Date, partySize: number, rangeInMinutes: number, areas?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.OnlineAvailability>> {
             const localVarPath = this.basePath + '/api/rsv/web/restaurants/{restaurantId}/availability'
                 .replace('{' + 'restaurantId' + '}', String(restaurantId));
 
@@ -155,6 +170,8 @@ namespace HostMe.Sdk {
             if (extraHttpRequestParams) {
                 httpRequestParams = this.extendObj(httpRequestParams, extraHttpRequestParams);
             }
+            
+            this.authentications.default.applyToRequest(httpRequestParams);
 
             return this.$http(httpRequestParams);
         }
@@ -163,7 +180,7 @@ namespace HostMe.Sdk {
          * 
          * @param restaurantId 
          */
-        public getRestaurantById (restaurantId: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<RestaurantInfo> {
+        public getRestaurantById (restaurantId: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.RestaurantInfo> {
             const localVarPath = this.basePath + '/api/rsv/web/restaurants/{restaurantId}'
                 .replace('{' + 'restaurantId' + '}', String(restaurantId));
 
@@ -184,8 +201,9 @@ namespace HostMe.Sdk {
             if (extraHttpRequestParams) {
                 httpRequestParams = this.extendObj(httpRequestParams, extraHttpRequestParams);
             }
+            
+            this.authentications.default.applyToRequest(httpRequestParams);
 
             return this.$http(httpRequestParams);
         }
     }
-}
