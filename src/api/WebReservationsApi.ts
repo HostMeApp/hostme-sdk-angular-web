@@ -1,19 +1,17 @@
 /* tslint:disable:no-unused-variable member-ordering */
 import * as models from '../model/models';
 import * as auth from './auth';
+import {IApiConfig} from '../client/IApiConfig';
 
 'use strict';
                                  	
     export class WebReservationsApi {
-        protected basePath = 'http://hostme-services-dev.azurewebsites.net';
         public defaultHeaders : any = {};
 
-        static $inject: string[] = ['$http', '$httpParamSerializer'];
+        static $inject: string[] = ['$http','IApiConfig', '$httpParamSerializer'];
 
-        constructor(protected $http: ng.IHttpService, protected $httpParamSerializer?: (d: any) => any, basePath?: string) {
-            if (basePath) {
-                this.basePath = basePath;
-            }
+        constructor(protected $http: ng.IHttpService, protected config: IApiConfig, protected $httpParamSerializer?: (d: any) => any) {
+           
         }
         
         public authentications = {
@@ -42,7 +40,7 @@ import * as auth from './auth';
          * @param value 
          */
         public addNewReservation (restaurantId: number, value: models.CreateWebReservation, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Reservation> {
-            const localVarPath = this.basePath + '/api/rsv/web/restaurants/{restaurantId}/reservations'
+            const localVarPath = this.config.basePath + '/api/rsv/web/restaurants/{restaurantId}/reservations'
                 .replace('{' + 'restaurantId' + '}', String(restaurantId));
 
             let queryParameters: any = {};
@@ -80,7 +78,7 @@ import * as auth from './auth';
          * @param name 
          */
         public findRestaurants (lat?: number, lon?: number, name?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.RestaurantInfo>> {
-            const localVarPath = this.basePath + '/api/rsv/web/restaurants/find';
+            const localVarPath = this.config.basePath + '/api/rsv/web/restaurants/find';
 
             let queryParameters: any = {};
             let headerParams: any = this.extendObj({}, this.defaultHeaders);
@@ -122,7 +120,7 @@ import * as auth from './auth';
          * @param areas 
          */
         public getReservationAvailability (restaurantId: number, date: Date, partySize: number, rangeInMinutes: number, areas?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.OnlineAvailability>> {
-            const localVarPath = this.basePath + '/api/rsv/web/restaurants/{restaurantId}/availability'
+            const localVarPath = this.config.basePath + '/api/rsv/web/restaurants/{restaurantId}/availability'
                 .replace('{' + 'restaurantId' + '}', String(restaurantId));
 
             let queryParameters: any = {};
@@ -181,7 +179,7 @@ import * as auth from './auth';
          * @param restaurantId 
          */
         public getRestaurantById (restaurantId: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.RestaurantInfo> {
-            const localVarPath = this.basePath + '/api/rsv/web/restaurants/{restaurantId}'
+            const localVarPath = this.config.basePath + '/api/rsv/web/restaurants/{restaurantId}'
                 .replace('{' + 'restaurantId' + '}', String(restaurantId));
 
             let queryParameters: any = {};
