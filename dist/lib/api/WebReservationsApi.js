@@ -2,18 +2,15 @@
 var auth = require('./auth');
 'use strict';
 var WebReservationsApi = (function () {
-    function WebReservationsApi($http, $httpParamSerializer, basePath) {
+    function WebReservationsApi($http, config, $httpParamSerializer) {
         this.$http = $http;
+        this.config = config;
         this.$httpParamSerializer = $httpParamSerializer;
-        this.basePath = 'http://hostme-services-dev.azurewebsites.net';
         this.defaultHeaders = {};
         this.authentications = {
             'default': new auth.VoidAuth(),
             'oauth2': new auth.OAuth(),
         };
-        if (basePath) {
-            this.basePath = basePath;
-        }
     }
     Object.defineProperty(WebReservationsApi.prototype, "accessToken", {
         set: function (token) {
@@ -31,7 +28,7 @@ var WebReservationsApi = (function () {
         return objA;
     };
     WebReservationsApi.prototype.addNewReservation = function (restaurantId, value, extraHttpRequestParams) {
-        var localVarPath = this.basePath + '/api/rsv/web/restaurants/{restaurantId}/reservations'
+        var localVarPath = this.config.basePath + '/api/rsv/web/restaurants/{restaurantId}/reservations'
             .replace('{' + 'restaurantId' + '}', String(restaurantId));
         var queryParameters = {};
         var headerParams = this.extendObj({}, this.defaultHeaders);
@@ -56,7 +53,7 @@ var WebReservationsApi = (function () {
         return this.$http(httpRequestParams);
     };
     WebReservationsApi.prototype.findRestaurants = function (lat, lon, name, extraHttpRequestParams) {
-        var localVarPath = this.basePath + '/api/rsv/web/restaurants/find';
+        var localVarPath = this.config.basePath + '/api/rsv/web/restaurants/find';
         var queryParameters = {};
         var headerParams = this.extendObj({}, this.defaultHeaders);
         if (lat !== undefined) {
@@ -82,7 +79,7 @@ var WebReservationsApi = (function () {
         return this.$http(httpRequestParams);
     };
     WebReservationsApi.prototype.getReservationAvailability = function (restaurantId, date, partySize, rangeInMinutes, areas, extraHttpRequestParams) {
-        var localVarPath = this.basePath + '/api/rsv/web/restaurants/{restaurantId}/availability'
+        var localVarPath = this.config.basePath + '/api/rsv/web/restaurants/{restaurantId}/availability'
             .replace('{' + 'restaurantId' + '}', String(restaurantId));
         var queryParameters = {};
         var headerParams = this.extendObj({}, this.defaultHeaders);
@@ -124,7 +121,7 @@ var WebReservationsApi = (function () {
         return this.$http(httpRequestParams);
     };
     WebReservationsApi.prototype.getRestaurantById = function (restaurantId, extraHttpRequestParams) {
-        var localVarPath = this.basePath + '/api/rsv/web/restaurants/{restaurantId}'
+        var localVarPath = this.config.basePath + '/api/rsv/web/restaurants/{restaurantId}'
             .replace('{' + 'restaurantId' + '}', String(restaurantId));
         var queryParameters = {};
         var headerParams = this.extendObj({}, this.defaultHeaders);
@@ -144,7 +141,7 @@ var WebReservationsApi = (function () {
         this.authentications.default.applyToRequest(httpRequestParams);
         return this.$http(httpRequestParams);
     };
-    WebReservationsApi.$inject = ['$http', '$httpParamSerializer'];
+    WebReservationsApi.$inject = ['$http', 'IApiConfig', '$httpParamSerializer'];
     return WebReservationsApi;
 }());
 exports.WebReservationsApi = WebReservationsApi;
