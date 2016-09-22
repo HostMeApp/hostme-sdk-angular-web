@@ -5,7 +5,6 @@ export * from './MembershipInfo';
 export * from './Message';
 export * from './ModelError';
 export * from './ModelState';
-export * from './Object';
 export * from './OnlineAvailability';
 export * from './Profile';
 export * from './Reservation';
