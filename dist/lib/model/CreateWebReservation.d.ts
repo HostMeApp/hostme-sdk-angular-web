@@ -1,6 +1,6 @@
 import * as models from './models';
 export interface CreateWebReservation {
-    reservationTime?: Date;
+    reservationTime?: string;
     customerName?: string;
     phoneNumber?: string;
     groupSize?: number;
